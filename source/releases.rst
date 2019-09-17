@@ -5,7 +5,8 @@ caratê - 2019.09.09
 -----------------------
 
 
-//TODO: 
+//TODO:
+???
 
 - IoT agents:
 
@@ -52,7 +53,7 @@ caratê - 2019.09.09
 
   - New library for `dojot modules <https://github.com/dojot/dojot-module-nodejs>`_ to accelerate development.
   - New `log library <https://github.com/dojot/dojot-module-logger-nodejs>`_ to standardize all service logs.
-  
+
 
 
 
