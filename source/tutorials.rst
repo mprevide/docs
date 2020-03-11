@@ -6,7 +6,7 @@ These tutorials showed you how to perform dojot operations with step-by-step tut
 
 .. toctree::
    :maxdepth: 2
-   :caption: Interal Tutorials
+   :caption: Internal Tutorials
    :numbered:
 
    using-web-interface
