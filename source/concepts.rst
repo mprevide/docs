@@ -38,7 +38,7 @@ like (not limited to these):
 - Validation data
 - Token expiration date
 
-The component responsible for user authentication is `auth`_. You can find a
+The component responsible for user authentication is `keycloak`_ TODO. You can find a
 tutorial of how to authenticate a user and how to get an access token in
 :ref:`Getting access token`.
 

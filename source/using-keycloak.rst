@@ -12,8 +12,10 @@ In this tutorial we will explain some important points of setting up and using k
     - Usando com com login e senha (nao recomendado)
         - para utilizar interfaces apis diretamente com usurio e  senhas  necessrio habitar o cliente 
 `dev-test-cli`
+        - login
         - como master http://localhost:8000/auth
         - como admin de um realm
+        - clients,
 
     - Usando secret
 
@@ -37,6 +39,8 @@ In this tutorial we will explain some important points of setting up and using k
 
 -localhost:8000/auth
 -http://localhost:8000/auth/admin/admin/console
+-http://localhost:8000/auth/realms/admin/account/
+
 
 http://localhost:8000/auth/admin/test1234/console/
 

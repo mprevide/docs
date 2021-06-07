@@ -166,8 +166,8 @@ msgid "Docker Compose"
 msgstr "Docker Compose"
 
 #: ../../source/installation-guide.rst:71
-msgid "In this video tutorial above, version v0.4.2 is used, but the same video is valid for the current version, it is only necessary to change to version v0.6.0."
-msgstr "Neste video tutorial acima é utilizada a versão v0.4.2, mas o mesmo video é válido para a versão atual, apenas é necessário mudar pra a versão v0.6.0"
+msgid "In this video tutorial above, version v0.4.2 is used, but the same video is valid for the current version, it is only necessary to change to version v0.8.0."
+msgstr "Neste video tutorial acima é utilizada a versão v0.4.2, mas o mesmo video é válido para a versão atual, apenas é necessário mudar pra a versão v0.8.0"
 
 #: ../../source/installation-guide.rst:73
 msgid "This document provides instructions on how to create a trivial deployment environment on single host for *dojot*, using Compose as the processes orchestration platform."

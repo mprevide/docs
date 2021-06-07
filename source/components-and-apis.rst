@@ -43,6 +43,10 @@ Components
     - `VerneMQ site`_
     - `VerneMQ doc.`_
     -
+  * - Keycloak TODO
+    - `TODO`_
+    - `TODO`_
+    -
   * - Leshan
     - `Leshan site`_
     - `Leshan doc.`_
@@ -51,10 +55,6 @@ Components
     - `InfluxDB site`_
     - `InfluxDB doc.`_
     -
-  * - Auth
-    - `GitHub - auth`_
-    -
-    - `API - auth`_
   * - Dojot Kong
     - `GitHub - Dojot Kong`_
     -
@@ -126,6 +126,10 @@ Components
     - `GitHub - InfluxDB Storer and Retriever`_
     -
     - `API - InfluxDB-Retriever`_
+  * - Backstage TODO
+    - `TODO GitHub - InfluxDB Storer and Retriever`_
+    -
+    - `TODO API - InfluxDB-Retriever`_
 
 
 Exposed APIs (API Gateway)
@@ -186,16 +190,6 @@ See more about how using APIs in :doc:`./using-api-interface`.
      - /revoke
      - `API - auth`_
      - No
-   * - Auth
-     - **/auth**/user
-     - /user
-     - `API - auth`_
-     - Yes
-   * - Auth
-     - **/auth**/pap
-     - /pap
-     - `API - auth`_
-     - Yes
    * - History
      - **/history**
      - /
@@ -270,6 +264,11 @@ See more about how using APIs in :doc:`./using-api-interface`.
      - /tss/v1/api-docs
      - `API - InfluxDB-Retriever`_
      - No
+   * - Backstage
+     - /tss/v1/api-docs
+     - /tss/v1/api-docs
+     - `API - InfluxDB-Retriever`_
+     - No
 
 **NOTE: Some of the components' endpoints aren't exposed, but are used internally.**
 
@@ -299,15 +298,9 @@ TCP port 8000), see the following table.
    * - Flowbroker
      - host:80/
      - host:8000/flows
-   * - Auth
+   * - KEYCLOAK TODO
      - host:5000/
      - host:8000/auth
-   * - Auth
-     - host:5000/revoke
-     - host:8000/auth/revoke
-   * - Auth
-     - host:5000/user
-     - host:8000/auth/user
    * - Auth
      - host:5000/pap
      - host:8000/auth/pap
@@ -351,6 +344,9 @@ TCP port 8000), see the following table.
      - host:3000/tss/v1/
      - host:8000/tss/v1/
    * - InfluxDB Retriever - Documentation
+     - host:3000/tss/v1/api-docs
+     - host:8000/tss/v1/api-docs
+   * - BACKSTAGE TODO - Documentation
      - host:3000/tss/v1/api-docs
      - host:8000/tss/v1/api-docs
 
@@ -418,9 +414,11 @@ dojot.
    * - iotagent-mosca
      - Device data update (`Messages - iotagent-mosca`_)
      - ``device-data``
-   * - auth
+   * - keycloak - TODO auth
      - Tenants creation/removal (`Messages - auth`_)
      - ``dojot.tenancy``
+   * - x509 - TODO
+     - 
 
 .. _MongoDB doc.: https://docs.mongodb.com/manual/
 .. _MongoDB site: https://www.mongodb.com/
@@ -441,57 +439,53 @@ dojot.
 .. _InfluxDB site: https://www.influxdata.com/
 .. _InfluxDB doc.: https://docs.influxdata.com/
 
-.. _GitHub - auth: https://github.com/dojot/auth/tree/v0.6.0
-.. _API - auth: https://dojot.github.io/auth/apiary_v0.6.0.html
-.. _Messages - auth: https://github.com/dojot/auth/tree/v0.6.0#kafka-messages
+.. _GitHub - Dojot Kong: https://github.com/dojot/kong/tree/v0.8.0
 
-.. _GitHub - Dojot Kong: https://github.com/dojot/kong/tree/v0.6.0
-
-.. _GitHub - history: https://github.com/dojot/history/tree/v0.6.0
-.. _API - history: https://dojot.github.io/history/apiary_v0.6.0.html
+.. _GitHub - history: https://github.com/dojot/history/tree/v0.8.0
+.. _API - history: https://dojot.github.io/history/apiary_v0.8.0.html
 
 
-.. _GitHub - DeviceManager: https://github.com/dojot/device-manager/tree/v0.6.0
-.. _API - DeviceManager: https://dojot.github.io/device-manager/apiary_v0.6.0.html
-.. _Messages - DeviceManager: https://github.com/dojot/device-manager/tree/v0.6.0#events
+.. _GitHub - DeviceManager: https://github.com/dojot/device-manager/tree/v0.8.0
+.. _API - DeviceManager: https://dojot.github.io/device-manager/apiary_v0.8.0.html
+.. _Messages - DeviceManager: https://github.com/dojot/device-manager/tree/v0.8.0#events
 
-.. _GitHub - image-manager: https://github.com/dojot/image-manager/tree/v0.6.0
-.. _API - image-manager: https://dojot.github.io/image-manager/apiary_v0.6.0.html
-
-
-.. _GitHub - GUI: https://github.com/dojot/gui/tree/v0.6.0
+.. _GitHub - image-manager: https://github.com/dojot/image-manager/tree/v0.8.0
+.. _API - image-manager: https://dojot.github.io/image-manager/apiary_v0.8.0.html
 
 
-.. _GitHub - flowbroker: https://github.com/dojot/flowbroker/tree/v0.6.0
-.. _API - flowbroker: https://dojot.github.io/flowbroker/apiary_v0.6.0.html
+.. _GitHub - GUI: https://github.com/dojot/gui/tree/v0.8.0
 
-.. _GitHub - data-broker: https://github.com/dojot/data-broker/tree/v0.6.0
-.. _API - data-broker: https://dojot.github.io/data-broker/apiary_v0.6.0.html
+
+.. _GitHub - flowbroker: https://github.com/dojot/flowbroker/tree/v0.8.0
+.. _API - flowbroker: https://dojot.github.io/flowbroker/apiary_v0.8.0.html
+
+.. _GitHub - data-broker: https://github.com/dojot/data-broker/tree/v0.8.0
+.. _API - data-broker: https://dojot.github.io/data-broker/apiary_v0.8.0.html
 
 .. _Messages - iotagent-mosca: http://dojotdocs.readthedocs.io/projects/iotagent-mosca/en/latest/operation.html#sending-messages-to-other-components-via-kafka
-.. _GitHub - iotagent-mosca: https://github.com/dojot/iotagent-mosca/tree/v0.6.0
+.. _GitHub - iotagent-mosca: https://github.com/dojot/iotagent-mosca/tree/v0.8.0
 
-.. _GitHub - iotagent-vernemq: https://github.com/dojot/dojot/tree/v0.6.0/connector/mqtt/vernemq
+.. _GitHub - iotagent-vernemq: https://github.com/dojot/dojot/tree/v0.8.0/connector/mqtt/vernemq
 
-.. _GitHub - iotagent-leshan: https://github.com/dojot/iotagent-leshan/tree/v0.6.0
-
-
-.. _GitHub - Data Manager: https://github.com/dojot/data-manager/tree/v0.6.0
-.. _API - Data Manager: https://dojot.github.io/data-manager/apiary_v0.6.0.html
-
-.. _GitHub - Cron: https://github.com/dojot/cron/tree/v0.6.0
-.. _API - Cron: https://dojot.github.io/cron/apiary_v0.6.0.html
-
-.. _GitHub - x509-identity-mgmt: https://github.com/dojot/dojot/tree/v0.6.0/x509-identity-mgmt
-.. _API - x509-identity-mgmt: https://dojot.github.io/dojot/x509-identity-mgmt/apiary_v0.6.0.html
-
-.. _GitHub - Kafka2Ftp: https://github.com/dojot/dojot/tree/v0.6.0/connector/kafka2ftp
-
-.. _GitHub - Kafka WS: https://github.com/dojot/dojot/tree/v0.6.0/subscription-engine/kafka-ws
-.. _API - kafka-ws: https://dojot.github.io/dojot/subscription-engine/kafka-ws/apiary_v0.6.0.html
-
-.. _GitHub - V2: https://github.com/dojot/gui-v2/tree/v0.6.0
+.. _GitHub - iotagent-leshan: https://github.com/dojot/iotagent-leshan/tree/v0.8.0
 
 
-.. _GitHub - InfluxDB Storer and Retriever: https://github.com/dojot/dojot/tree/v0.6.0/storage/time-series/influxdb
-.. _API - InfluxDB-Retriever: https://dojot.github.io/dojot/storage/time-series/influxdb/retriever/doc.html?version=v0.6.0
+.. _GitHub - Data Manager: https://github.com/dojot/data-manager/tree/v0.8.0
+.. _API - Data Manager: https://dojot.github.io/data-manager/apiary_v0.8.0.html
+
+.. _GitHub - Cron: https://github.com/dojot/cron/tree/v0.8.0
+.. _API - Cron: https://dojot.github.io/cron/apiary_v0.8.0.html
+
+.. _GitHub - x509-identity-mgmt: https://github.com/dojot/dojot/tree/v0.8.0/x509-identity-mgmt
+.. _API - x509-identity-mgmt: https://dojot.github.io/dojot/x509-identity-mgmt/apiary_v0.8.0.html
+
+.. _GitHub - Kafka2Ftp: https://github.com/dojot/dojot/tree/v0.8.0/connector/kafka2ftp
+
+.. _GitHub - Kafka WS: https://github.com/dojot/dojot/tree/v0.8.0/subscription-engine/kafka-ws
+.. _API - kafka-ws: https://dojot.github.io/dojot/subscription-engine/kafka-ws/apiary_v0.8.0.html
+
+.. _GitHub - V2: https://github.com/dojot/gui-v2/tree/v0.8.0
+
+
+.. _GitHub - InfluxDB Storer and Retriever: https://github.com/dojot/dojot/tree/v0.8.0/storage/time-series/influxdb
+.. _API - InfluxDB-Retriever: https://dojot.github.io/dojot/storage/time-series/influxdb/retriever/doc.html?version=v0.8.0

@@ -15,7 +15,7 @@ The main components that are currently in `dojot platform`_ are :numref:`dojot_c
     :align: center
 
 
-    [Auth]
+    [Keycloak TODO]
     [DeviceManager]
     [Persister]
     [History]
@@ -34,7 +34,7 @@ The main components that are currently in `dojot platform`_ are :numref:`dojot_c
       [IoT RabbitMQ]
     }
 
-    [postgreSQL] <-- [Auth]
+    [postgreSQL] <-- [Keycloak - TODO]
     [postgreSQL] <-- [DeviceManager]
     [postgreSQL] <- [Kong]
     [postgreSQL] <-- [x509-identity-mgmt]
@@ -46,7 +46,7 @@ The main components that are currently in `dojot platform`_ are :numref:`dojot_c
 
 They are:
 
-- Auth: authentication mechanism
+- Keycloak TODO: authentication mechanism
 - DeviceManager: device and template storage.
 - Persister: component that stores all device-generated data.
 - History: component that exposes all device-generated data.
@@ -106,19 +106,19 @@ as entrypoint.
 
    actor Client
    boundary Kong
-   control Auth
+   control Keycloak
 
    Client -> Kong: POST /auth \nBody={"admin", "p4ssw0rD"}
    activate Kong
-   Kong -> Auth: POST /user \nBody={"admin", "p4ssw0rD"}
-   Auth --> Kong: JWT="873927dab"
+   Kong -> Keycloak: POST /user \nBody={"admin", "p4ssw0rD"} TODO
+   Keycloak --> Kong: JWT="873927dab" TODO
    Kong --> Client: JWT="873927dab"
    deactivate Kong
 
 In this figure, a client retrieves an access token for user `admin` whose
 password is `p4ssw0rd`. After that, a user can send a request to HTTP APIs
 using it. This is shown in :numref:`sending_requests`. Note: the actual authorization
-mechanism is detailed in `Auth + API gateway (Kong)`_.
+mechanism is detailed in `Keycloak + API gateway (Kong)`_ TODO.
 
 .. _sending_requests:
 .. uml::
@@ -127,14 +127,14 @@ mechanism is detailed in `Auth + API gateway (Kong)`_.
 
    actor Client
    boundary Kong
-   control Auth
+   control Keycloak
    control DeviceManager
    database PostgreSQL
 
    Client -> Kong: POST /device \nHeaders="Authorization: Bearer JWT"\nBody={ device }
    activate Kong
-   Kong -> Auth: POST /pep \nBody={"admin", "/device"}
-   Auth --> Kong: OK 200
+   Kong -> Keycloak: POST /pep \nBody={"admin", "/device"} TODO
+   Keycloak --> Kong: OK 200 TODO
    Kong -> DeviceManager: POST /device \nHeaders="Authorization: JWT" \nBody={ "device" : "XYZ" }
    activate DeviceManager
    DeviceManager -> PostgreSQL: INSERT INTO ....
@@ -146,7 +146,7 @@ mechanism is detailed in `Auth + API gateway (Kong)`_.
 
 In this figure, a client creates a new device using the token retrieved in
 :numref:`initial_authentication`. This request is analyzed by Kong, which will
-invoke Auth to check whether the user set in the token is allowed to ``POST``
+invoke Keycloak TODO to check whether the user set in the token is allowed to ``POST``
 to ``/device`` endpoint. Only after the approval of such request, Kong will
 forward it to DeviceManager.
 
@@ -211,7 +211,7 @@ Kafka topics, each one transmitting messages for a particular tenant), the
 component must bootstrap each tenant before sending or receiving messages. This
 is done in two phases: component boot time and component runtime.
 
-In the first phase, a component asks Auth in order to retrieve all currently
+In the first phase, a component asks TODO Keycloak in order to retrieve all currently
 configured tenants. It is interested, let's say, in consuming messages from
 `device-data` and `dojot.device-manager.devices` subjects. Therefore, it will
 request DataBroker a topic for each tenant for each subject. With that list of
@@ -224,12 +224,12 @@ through those topics. This is shown by :numref:`Tenant bootstrapping startup`.
    :align: center
 
    control Component
-   control Auth
+   control Keycloak TODO
    control DataBroker
    control Kafka
 
-   Component-> Auth: GET /tenants
-   Auth --> Component: {"tenants" : ["admin", "tenant1"]}
+   Component-> Keycloak TODO: GET /tenants
+   Keycloak TODO --> Component: {"tenants" : ["admin", "tenant1"]}
    loop each $tenant in tenants
      Component -> DataBroker: GET /topic/device-data \nHeaders="Authorization: JWT[tenant]"
      DataBroker --> Component: {"topic" : "**$tenant**.device-data"}
@@ -277,10 +277,10 @@ to deal with these messages.
 All services that are somehow interested in using subjects should execute this
 procedure in order to correctly receive all messages.
 
-Auth + API gateway (Kong)
+Keycloak TODO + API gateway (Kong)
 -------------------------
 
-Auth is a service deeply connected to Kong. It is responsible for user
+Keycloak TODO is a service deeply connected to Kong. It is responsible for user
 management, authentication and authorization. As such, it is invoked by 
 Kong whenever a request is received by one of its registered endpoints. 
 This section will detail how this is performed and how they work together.
@@ -322,8 +322,8 @@ For some of its registered endpoints, the script will add two plugins to
 selected endpoints:
 
 #. JWT generation. The documentation for this plugin is available at `Kong JWT
-   plugin page`_.
-#. Configures a plugin which will forward all policies requests to Auth
+   plugin page`_. Keycloak TODO
+#. Configures a plugin which will forward all policies requests to Keycloak TODO
    in order to authenticate requests. This plugin is available
    inside the `Kong repository`_.
 
@@ -331,7 +331,7 @@ The following request install these two plugins in data-broker API:
 
 .. code-block:: bash
 
-    #pepkong - auth
+    #pepkong - Keycloak TODO
     curl  -sS  -X POST \
     --url ${kong}/services/data-broker/plugins/ \
     --data "name=pepkong" \
@@ -346,7 +346,7 @@ The following request install these two plugins in data-broker API:
 Emitted messages
 ****************
 
-Auth will emit just one message via Kafka for tenant creation:
+Keycloak TODO will emit just one message via Kafka for tenant creation:
 
 .. code-block:: json
 
@@ -367,7 +367,7 @@ And one for tenant deletion:
 By default these messages are created in
 kafka topic ``dojot-management.dojot.tenancy``.
 
-This prefix topic can be configured, check the`Auth`
+This prefix topic can be configured, check the`Keycloak TODO`
 component documentation :doc:`./components-and-apis`.
 
 Device Manager
@@ -576,7 +576,7 @@ The component responds with the following syntax:
     "ticket": "[an opaque ticket of 64 hexadecimal characters]"
   }
 
-Note: In the context of a dojot deployment the JWT Token is provided by the Auth service,
+Note: In the context of a dojot deployment the JWT Token is provided by the Keycloak TODO service,
 and is validated by the API Gateway before redirecting the connection to the *Kafka WS*.
 So, no validations are done by the Kafka WS.
 

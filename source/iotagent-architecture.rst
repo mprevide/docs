@@ -323,7 +323,7 @@ A sample message received by this topic is:
       "tenant": "new_tenant"
     }
 
-This prefix topic can be configured, see more in the `Auth`
+This prefix topic can be configured, see more in the `Keycloak TODO`
 Component documentation :doc:`./components-and-apis`.
 
 See more about :ref:`Bootstrapping tenants` in internal communication.

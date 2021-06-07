@@ -106,16 +106,6 @@ CoAP/LWM2M, Lora/ATC, Sigfox/WDN and HTTP/JSON.
 
 Communication via secure channels with devices is also the responsibility of IoT agents.
 
-User Authorization Service
-**************************
-
-This service is responsible for managing user profiles and access control.
-Basically any API call that reaches the platform via the API Gateway is
-validated by this service.
-
-To be able to deal with a high volume of authorization calls, it uses caching,
-it is stateless and it is scalable horizontally. Its data is stored on a
-database.
 
 Flowbroker (Flow builder)
 *************************
@@ -239,6 +229,8 @@ A few extra components are used in dojot,they are:
   add a considerable access overhead (where it was employed in dojot).
 
 - zookeeper: keeps replicated services within a cluster under control.
+
+- keycloak: TODO
 
 
 Communications

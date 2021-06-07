@@ -10,6 +10,8 @@ certificates and device history report.
    - Level: basic
    - Reading time: 20m
 
+Keycloak TODO - watch videos to see
+
 Device management
 -----------------
 

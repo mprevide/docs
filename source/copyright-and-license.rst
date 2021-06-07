@@ -8,6 +8,7 @@ The dojot IoT Platform is based on well-known open source software such as
 `MongoDB`_,
 `Redis`_,
 `Kong Gateway`_,
+`Keycloak`_ TODO,
 and `VerneMQ`_, which have their own licenses.
 
 The services developed by the dojot team to integrate these open-source

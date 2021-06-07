@@ -13,6 +13,7 @@ The following tutorials show you how to use the core features of IoT dojot Platf
    flow
    mqtt-tls
    load-testing-dojot-platform
+   using-keycloak
 
 There are also other tutorials (in portuguese only)  hosted outside the Read The Docs that you can also use to learn more about dojot:
 

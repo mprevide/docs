@@ -39,7 +39,10 @@ Getting access token
 All requests must contain a valid access
 token. You can generate a new token by sending the following request:
 
+TODO Link to how enable dev-test-cli
+
 .. code-block:: bash
+  TODO
 
   JWT=$(curl -s -X POST http://localhost:8000/auth \
   -H 'Content-Type:application/json' \
