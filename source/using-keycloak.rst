@@ -48,6 +48,10 @@ http://localhost:8000/auth/realms/test1234/account/
 
 
 
+https://sen.dojot.com.br/auth/admin/tenant2/console/
+
+
+
 - TODO hwo add client
 - TODO This is exactly the thing OAuth was created to prevent in the first place, so you should never allow third-party apps to use this grant.
 - TODO explain how enable dev-test-cli

@@ -11,7 +11,7 @@ description does not explain (or aims to explain) the minutiae of each
 component's implementation. For that, please refer to each component's own
 documentation.
 
-.. figure:: images/arqui_carate_v04.png
+.. figure:: images/arq_simple_08.png
     :width: 100%
     :align: center
 
@@ -230,7 +230,7 @@ A few extra components are used in dojot,they are:
 
 - zookeeper: keeps replicated services within a cluster under control.
 
-- keycloak: TODO
+- keycloak: an open source software product to allow single sign-on with Identity and Access Management aimed at modern applications and services.
 
 
 Communications

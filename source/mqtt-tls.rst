@@ -161,7 +161,7 @@ certificates and keys as follows:
 .. code:: shell
 
       ./bin/certreq.sh \
-         -h localhost \
+         -h http://localhost \
          -p 8000 \
          -i 'a1998e' \
          -u 'admin' \
@@ -170,7 +170,7 @@ certificates and keys as follows:
 Given a *username* ``admin`` and *password* ``admin``,
 this command will request a certificate
 with *device ID (identifier)* ``a1998e``
-for the dojot platform *host* ``localhost`` on *port* ``8000``.
+for the dojot platform *host* ``http://localhost`` on *port* ``8000``.
 
 
 .. NOTE::   For more details about the CertReq parameters, check
@@ -316,6 +316,34 @@ A certificate file can be in two formats: PEM (base64 text) or DER
 .. code:: bash
 
     openssl x509 -noout -text -in certFile.crt
+
+How get Fingerprint (as SHA256) of the certificate, where each pair of bytes
+(represented by hexadecimal characters) are separated by a colon.
+
+.. code:: bash
+
+    openssl x509 -fingerprint -sha256 -in localhost.crt
+
+
+
+
+----
+x509-ejbca:
+EJBCA_CRL_EXPIRE_PERIOD_DEVICES_CA: "1m"
+EJBCA_CRL_ISSUE_INTERVAL_DEVICES_CA: "1m"
+EJBCA_CRL_OVERLAP_TIME_DEVICES_CA: "1m"
+EJBCA_DELTA_CRL_PERIOD_DEVICES_CA: "1m"
+EJBCA_CRL_EXPIRE_PERIOD_INTERNAL_CA: "1m"
+EJBCA_CRL_ISSUE_INTERVAL_INTERNAL_CA: "1m"
+EJBCA_CRL_OVERLAP_TIME_INTERNAL_CA: "1m"
+EJBCA_DELTA_CRL_PERIOD_INTERNAL_CA: "1m"
+EJBCA_CRL_UPDATER_SERVICE_INTERVAL_VALUE: 1
+
+---
+x509-identity-mgmt:
+X509IDMGMT_EJBCA_FORCECRLRENEW: "true"
+X509IDMGMT_CERTIFICATE_CHECK_SUBJECTDN: "true"
+---
 
 
 .. _OpenSSL: https://www.openssl.org/
