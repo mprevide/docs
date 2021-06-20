@@ -28,7 +28,7 @@ payload.data: {"label":"test","id":"29fa02","templates":["1"],"created":"2021-06
 payload.metadata: {"tenant":"admin"}
 
 -----------
-add template em um device
+add template at a device
 
 payload.event: update
 payload.data: {"label":"test","id":"29fa02","updated":"2021-06-08T14:51:16.003916+00:00","templates":["1","2"],"created":"2021-06-08T14:46:27.008321+00:00","attrs":{"out":{"id":2,"value_type":"string","static_value":"","type":"actuator","template_id":"1","created":"2021-06-08T14:33:24.333995+00:00","is_static_overridden":false},"in":{"id":1,"value_type":"string","static_value":"","type":"dynamic","template_id":"1","created":"2021-06-08T14:33:24.330779+00:00","is_static_overridden":false},"trs":{"id":3,"value_type":"bool","static_value":"","type":"dynamic","template_id":"1","created":"2021-06-08T14:48:40.655230+00:00","is_static_overridden":false},"sdfsdf":{"id":4,"value_type":"bool","static_value":"","type":"dynamic","template_id":"2","created":"2021-06-08T14:50:35.169935+00:00","is_static_overridden":false}}}
@@ -36,7 +36,7 @@ payload.metadata: {"tenant":"admin"}
 
 -----------
 
-remove - device
+remove a device
 
 payload.event: remove
 payload.data: {"label":"1","id":"9face8","templates":[1],"created":"2021-06-08T14:33:32.828170+00:00","attrs":{"1":[{"label":"out","id":2,"value_type":"string","static_value":"","type":"actuator","template_id":"1","created":"2021-06-08T14:33:24.333995+00:00","is_static_overridden":false},{"label":"in","id":1,"value_type":"string","static_value":"","type":"dynamic","template_id":"1","created":"2021-06-08T14:33:24.330779+00:00","is_static_overridden":false},{"label":"trs","id":3,"value_type":"bool","static_value":"","type":"dynamic","template_id":"1","created":"2021-06-08T14:48:40.655230+00:00","is_static_overridden":false}]}}

@@ -24,8 +24,8 @@ configured with should be considered. As an example, the estimated hardware requ
    *  - **Docker Compose**
       -
       - 4 Cores
-      - 6GB
-      - 20GB
+      - 8GB
+      - 30GB
    *  - **Kubernetes**
       - Master
       - 2 Cores
@@ -34,7 +34,7 @@ configured with should be considered. As an example, the estimated hardware requ
    *  - **Kubernetes**
       - Worker
       - 4 Cores
-      - 6GB
+      - 8GB
       - 40GB
    *  - **Kubernetes**
       - Balancer

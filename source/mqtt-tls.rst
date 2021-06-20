@@ -325,27 +325,6 @@ How get Fingerprint (as SHA256) of the certificate, where each pair of bytes
     openssl x509 -fingerprint -sha256 -in localhost.crt
 
 
-
-
-----
-x509-ejbca:
-EJBCA_CRL_EXPIRE_PERIOD_DEVICES_CA: "1m"
-EJBCA_CRL_ISSUE_INTERVAL_DEVICES_CA: "1m"
-EJBCA_CRL_OVERLAP_TIME_DEVICES_CA: "1m"
-EJBCA_DELTA_CRL_PERIOD_DEVICES_CA: "1m"
-EJBCA_CRL_EXPIRE_PERIOD_INTERNAL_CA: "1m"
-EJBCA_CRL_ISSUE_INTERVAL_INTERNAL_CA: "1m"
-EJBCA_CRL_OVERLAP_TIME_INTERNAL_CA: "1m"
-EJBCA_DELTA_CRL_PERIOD_INTERNAL_CA: "1m"
-EJBCA_CRL_UPDATER_SERVICE_INTERVAL_VALUE: 1
-
----
-x509-identity-mgmt:
-X509IDMGMT_EJBCA_FORCECRLRENEW: "true"
-X509IDMGMT_CERTIFICATE_CHECK_SUBJECTDN: "true"
----
-
-
 .. _OpenSSL: https://www.openssl.org/
 .. _curl: https://curl.haxx.se/
 .. _jq: https://stedolan.github.io/jq/
